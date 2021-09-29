@@ -100,6 +100,21 @@ function searchByEyeColor(){
 console.log(searchByEyeColor());
 
 
+function searchByGender(people){
+  let userPromptGender = promptFor("Is the person male or female?");
+
+  let personGender = people.filter(function(gender){
+        if(gender.userPromptGender === userInputGender){
+            return true;
+        }
+      else{
+        return false;
+      }  
+    })
+    return personGender;
+}
+searchByGender();
+
 //TODO: add other trait filter functions here.
 
 
