@@ -83,7 +83,7 @@ function searchByName(people){
 }
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
-function searchByEyeColor(people){
+function searchByEyeColor(){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
   let personEyeColor = people.filter(function(coloredEyes){
@@ -95,9 +95,11 @@ function searchByEyeColor(people){
     }
   })
   return personEyeColor;
+
 }
 
-searchByEyeColor();
+console.log(searchByEyeColor());
+
 
 function searchByGender(people){
   let userPromptGender = promptFor("Is the person male or female?");
