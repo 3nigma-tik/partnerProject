@@ -101,11 +101,11 @@ function searchByEyeColor(){
 console.log(searchByEyeColor());
 
 
-function searchByGender(people){
-  let userPromptGender = promptFor("Is the person male or female?");
+function searchByGender(){
+  let gender = promptFor("Is the person male or female?", autoValid);
 
-  let personGender = people.filter(function(gender){
-        if(gender.userPromptGender === userInputGender){
+  let personGender = people.filter(function(whatGender){
+        if(whatGender.gender === gender){
             return true;
         }
       else{
@@ -114,7 +114,24 @@ function searchByGender(people){
     })
     return personGender;
 }
-searchByGender();
+console.log(searchByGender());
+
+
+function searchByOccupation(){
+	let occupation = promptFor("What is the person's occupation?", autoValid);
+
+    let personOccupation = people.filter(function(whatOccupation){
+        if(whatOccupation.occupation === occupation){
+          return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return personOccupation;
+}
+console.log(searchByOccupation());
+
 
 //TODO: add other trait filter functions here.
 
