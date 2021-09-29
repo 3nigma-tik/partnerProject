@@ -82,6 +82,7 @@ function searchByName(people){
   return foundPerson;
 }
 
+
 function searchByEyeColor(){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
@@ -97,26 +98,35 @@ function searchByEyeColor(){
 
 }
 
-console.log(searchByEyeColor());
-
-
-function searchByGender(people){
-  let userPromptGender = promptFor("Is the person male or female?");
-
-  let personGender = people.filter(function(gender){
-        if(gender.userPromptGender === userInputGender){
-            return true;
-        }
-      else{
-        return false;
-      }  
-    })
-    return personGender;
+for(i = 0; i < people.length; i++){
+  if(people[i].currentSpouse < 5){
+    console.log(people[i].currentSpouse);
+  }
 }
-searchByGender();
 
 //TODO: add other trait filter functions here.
 
+
+
+
+// function areYouMarried(){
+//   let marriedPrompt = promptFor("is this person married?", autoValid);
+  
+
+//   let hasASpouse = people.filter(function(spouseFinder){
+//     if(spouseFinder.currentSpouse === ){
+//       return true;
+//     }
+//     else{
+//       return false;
+//     }
+//   })
+  
+//   return hasASpouse;
+
+// }
+
+// console.log(areYouMarried());
 
 
 //#endregion
