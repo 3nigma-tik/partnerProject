@@ -100,7 +100,7 @@ function searchByEyeColor(){
 console.log(searchByEyeColor());
 
 
-function searchByGender(){
+function searchByGender(people){
   let gender = promptFor("Is the person male or female?", autoValid);
 
   let personGender = people.filter(function(whatGender){
@@ -113,10 +113,10 @@ function searchByGender(){
     })
     return personGender;
 }
-console.log(searchByGender());
+console.log(searchByGender(people));
 
 
-function searchByOccupation(){
+function searchByOccupation(people){
 	let occupation = promptFor("What is the person's occupation?", autoValid);
 
     let personOccupation = people.filter(function(whatOccupation){
@@ -129,7 +129,25 @@ function searchByOccupation(){
   })
     return personOccupation;
 }
-console.log(searchByOccupation());
+console.log(searchByOccupation(people));
+
+
+function searchByHeight(people){
+  let height = promptFor("What is the height of the person in inches?", autoValid);
+
+  let personHeight = people.filter(function(whatHeight){
+    if(whatHeight.height == height){
+      return true;
+  }
+  else{
+    return false;
+  }
+  })
+    return personHeight;
+}
+console.log(searchByHeight(people));
+
+
 
 
 //TODO: add other trait filter functions here.
