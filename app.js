@@ -28,19 +28,17 @@ function app(people){
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
-
-  /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-
-  if(!person){
+  
+  if(!foundPerson){
     alert("Could not find that individual.");
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let foundPerson = promptFor("Found " + people.firstName + " " + people.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
 
-  switch(displayOption){
+  switch(foundPerson){
     case "info":
-    // TODO: get person's info
+    console.log(people.gender);
     break;
     case "family":
     // TODO: get person's family
@@ -82,25 +80,7 @@ function searchByName(people){
   return foundPerson;
 }
 
-
-function spouseSearch(){
-  let currentSpouse = promptFor("Who is their spouse?", autoValid);
-  let for(i =0; i < people.length; i++){
-    if(people[i].currentSpouse)
-  } 
-
-  let isMarried = people.filter(function(findSpouse){
-    if(findSpouse.currentSpouse === currentSpouse){
-      return true;
-    }
-    else{
-      return false;
-    }
-  })
-  return isMarried;
-
-}
-
+console.log(searchByName());
 
 
 
