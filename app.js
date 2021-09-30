@@ -38,7 +38,7 @@ function mainMenu(person, people){
 
   switch(foundPerson){
     case "info":
-    console.log(people.gender);
+    // TODO: get person's
     break;
     case "family":
     // TODO: get person's family
@@ -80,7 +80,7 @@ function searchByName(people){
   return foundPerson;
 }
 
-console.log(searchByName());
+console.log(searchByName(people));
 
 
 
@@ -164,21 +164,22 @@ console.log(searchByHeight(people));
 //#region 
 
 // alerts a list of people
-function displayPeople(people){
-  alert(people.map(function(person){
-    return person.firstName + " " + person.lastName;
+function displayPeople(){
+  alert(people.map(function(people){
+    return people.firstName + " " + people.lastName;
   }).join("\n"));
 }
 
-function displayPerson(person){
+function displayPerson(people){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
+  let personInfo = "First Name: " + people.firstName + "\n";
+  personInfo += "Last Name: " + people.lastName + "\n";
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
 }
 
+displayPeople("billy bob")
 //#endregion
 
 
