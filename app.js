@@ -83,28 +83,7 @@ function searchByName(people){
 }
 
 
-function spouseSearch(){
-  let currentSpouse = promptFor("Who is their spouse?", autoValid);
-  let for(i =0; i < people.length; i++){
-    if(people[i].currentSpouse)
-  } 
-
-  let isMarried = people.filter(function(findSpouse){
-    if(findSpouse.currentSpouse === currentSpouse){
-      return true;
-    }
-    else{
-      return false;
-    }
-  })
-  return isMarried;
-
-}
-
-
-
-
-function searchByEyeColor(){
+function searchByEyeColor(people){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
   let personEyeColor = people.filter(function(coloredEyes){
@@ -116,10 +95,7 @@ function searchByEyeColor(){
     }
   })
   return personEyeColor;
-
 }
-
-console.log(searchByEyeColor());
 
 
 function searchByGender(people){
@@ -127,15 +103,14 @@ function searchByGender(people){
 
   let personGender = people.filter(function(whatGender){
         if(whatGender.gender === gender){
-            return true;
+          return true;
         }
-      else{
-        return false;
-      }  
-    })
-    return personGender;
+        else{
+          return false;
+        }
+      })
+      return personGender;
 }
-console.log(searchByGender(people));
 
 
 function searchByOccupation(people){
@@ -151,7 +126,6 @@ function searchByOccupation(people){
   })
     return personOccupation;
 }
-console.log(searchByOccupation(people));
 
 
 function searchByHeight(people){
@@ -167,13 +141,76 @@ function searchByHeight(people){
   })
     return personHeight;
 }
-console.log(searchByHeight(people));
 
 
+function searchByWeight(people){
+  let weight = promptFor("What is the weight of the person in pounds?", autoValid);
+
+  let personWeight = people.filter(function(whatWeight){
+    if(whatWeight.weight == weight){
+      return true;
+  }
+  else{
+    return false;
+  }
+  })
+    return personWeight;
+}
 
 
 //TODO: add other trait filter functions here.
 
+// function for searching by traits.
+function searchMultipleTraits(people){
+  let multipleTraits = people;
+  do{
+    let inputMultipleTraits = promptFor('What trait would you like to search?\neyecolor\ngender\noccupation\nheight\nweight', autoValid);
+
+    switch(inputMultipleTraits){ 
+      case "eyecolor":
+        multipleTraits = searchByEyeColor(multipleTraits);
+        break;
+        case "gender":
+        multipleTraits = searchByGender(multipleTraits);
+        break;
+        case "occupation":
+        multipleTraits = searchByOccupation(multipleTraits);
+        break;
+        case "height":
+        multipleTraits = searchByHeight(multipleTraits);
+        break;  
+        case "weight":
+        multipleTraits = searchByWeight(multipleTraits);
+        break;
+      default:
+    } 
+  }
+  while(promptFor("Keep searching yes or no", autoValid) == "yes");
+  return multipleTraits
+}
+console.log(searchMultipleTraits(people));
+
+
+function searchSingleTrait(people){
+  let trait = prompt("Which trait would you like to look for?");
+  
+  if (trait === "eyecolor"){
+    console.log(searchByEyeColor(people));
+  }
+  else if (trait === "gender"){
+    console.log(searchByGender(people));
+  }
+  else if (trait === "occupation"){
+    console.log(searchByOccupation(people));
+  }
+  else if (trait == "height"){
+    console.log(searchByHeight(people));
+  }
+  else if (trait == "weight"){
+    console.log(searchByWeight(people));
+  }
+}
+// searchSingleTrait(people);
 
 
 //#endregion

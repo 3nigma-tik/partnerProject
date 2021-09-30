@@ -6,21 +6,19 @@
 
 
 
-function searchByEyeColor(people){
-    let eyeColor = promptFor("What is the person's eye color?", autoValid);
-  
-    let personEyeColor = people.filter(function(coloredEyes){
-      if(coloredEyes.eyeColor === eyeColor){
-        return true;
-      }
-      else{
-        return false;
-      }
-    })
-    return personEyeColor;
-  }
+function searchByEyeColor(){
+  let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
-  searchByEyeColor("blue");
+  let personEyeColor = people.filter(function(coloredEyes){
+    if(coloredEyes.eyeColor === eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return personEyeColor;
 
+}
 
-  
+console.log(searchByEyeColor());
