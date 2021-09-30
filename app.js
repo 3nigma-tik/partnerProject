@@ -82,7 +82,6 @@ function searchByName(people){
   return foundPerson;
 }
 
-
 function searchByEyeColor(){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
@@ -98,38 +97,61 @@ function searchByEyeColor(){
 
 }
 
-function  spouseFinder(){
-  for(i = 0; i < people.length; i++){
-    if(people[i].currentSpouse < 5){
-      console.log(people[i].currentSpouse);
-    }
-  }
+console.log(searchByEyeColor());
+
+
+function searchByGender(people){
+  let gender = promptFor("Is the person male or female?", autoValid);
+
+  let personGender = people.filter(function(whatGender){
+        if(whatGender.gender === gender){
+            return true;
+        }
+      else{
+        return false;
+      }  
+    })
+    return personGender;
 }
-
-//TODO: add other trait filter functions here.git push
-
+console.log(searchByGender(people));
 
 
+function searchByOccupation(people){
+	let occupation = promptFor("What is the person's occupation?", autoValid);
+
+    let personOccupation = people.filter(function(whatOccupation){
+        if(whatOccupation.occupation === occupation){
+          return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return personOccupation;
+}
+console.log(searchByOccupation(people));
 
 
-// function areYouMarried(){
-//   let marriedPrompt = promptFor("is this person married?", autoValid);
-  
+function searchByHeight(people){
+  let height = promptFor("What is the height of the person in inches?", autoValid);
 
-//   let hasASpouse = people.filter(function(spouseFinder){
-//     if(spouseFinder.currentSpouse === ){
-//       return true;
-//     }
-//     else{
-//       return false;
-//     }
-//   })
-  
-//   return hasASpouse;
+  let personHeight = people.filter(function(whatHeight){
+    if(whatHeight.height == height){
+      return true;
+  }
+  else{
+    return false;
+  }
+  })
+    return personHeight;
+}
+console.log(searchByHeight(people));
 
-// }
 
-// console.log(areYouMarried());
+
+
+//TODO: add other trait filter functions here.
+
 
 
 //#endregion
