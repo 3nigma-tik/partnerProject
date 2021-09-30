@@ -21,4 +21,39 @@ function searchByEyeColor(){
 
 }
 
+<<<<<<< HEAD
 console.log(searchByEyeColor());
+=======
+  
+  
+  function mainMenu(person, people){
+  
+    if(!person){
+      alert("Could not find that individual.");
+      return app(people); // restart
+    }
+  
+    let foundPerson = promptFor("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  
+    switch(displayOption){
+      case "info":
+      console.log(foundPerson.gender + foundPerson.occupation);
+      break;
+      case "family":
+      // TODO: get person's family
+      break;
+      case "descendants":
+      // TODO: get person's descendants
+      break;
+      case "restart":
+      app(people); // restart
+      break;
+      case "quit":
+      return; // stop execution
+      default:
+      return mainMenu(person, people); // ask again
+    }
+  }
+
+  console.log(mainMenu());
+>>>>>>> b41602d09a8640dbad73424d4d589ab8b1ad0d81

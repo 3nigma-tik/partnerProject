@@ -28,19 +28,17 @@ function app(people){
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
-
-  /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-
-  if(!person){
+  
+  if(!foundPerson){
     alert("Could not find that individual.");
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let foundPerson = promptFor("Found " + people.firstName + " " + people.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
 
-  switch(displayOption){
+  switch(foundPerson){
     case "info":
-    // TODO: get person's info
+    // TODO: get person's
     break;
     case "family":
     // TODO: get person's family
@@ -82,8 +80,11 @@ function searchByName(people){
   return foundPerson;
 }
 
+console.log(searchByName(people));
 
-function searchByEyeColor(people){
+
+
+function searchByEyeColor(){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
   let personEyeColor = people.filter(function(coloredEyes){
@@ -221,21 +222,22 @@ function searchSingleTrait(people){
 //#region 
 
 // alerts a list of people
-function displayPeople(people){
-  alert(people.map(function(person){
-    return person.firstName + " " + person.lastName;
+function displayPeople(){
+  alert(people.map(function(people){
+    return people.firstName + " " + people.lastName;
   }).join("\n"));
 }
 
-function displayPerson(person){
+function displayPerson(people){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
+  let personInfo = "First Name: " + people.firstName + "\n";
+  personInfo += "Last Name: " + people.lastName + "\n";
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
 }
 
+displayPeople("billy bob")
 //#endregion
 
 
