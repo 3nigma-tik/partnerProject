@@ -98,13 +98,16 @@ function searchByEyeColor(){
 
 }
 
-for(i = 0; i < people.length; i++){
-  if(people[i].currentSpouse < 5){
-    console.log(people[i].currentSpouse);
+function  spouseFinder(){
+  for(i = 0; i < people.length; i++){
+    if(people[i].currentSpouse < 5){
+      console.log(people[i].currentSpouse);
+    }
   }
 }
 
-//TODO: add other trait filter functions here.
+//TODO: add other trait filter functions here.git push
+
 
 
 
