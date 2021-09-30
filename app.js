@@ -82,6 +82,28 @@ function searchByName(people){
   return foundPerson;
 }
 
+
+function spouseSearch(){
+  let currentSpouse = promptFor("Who is their spouse?", autoValid);
+  let for(i =0; i < people.length; i++){
+    if(people[i].currentSpouse)
+  } 
+
+  let isMarried = people.filter(function(findSpouse){
+    if(findSpouse.currentSpouse === currentSpouse){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return isMarried;
+
+}
+
+
+
+
 function searchByEyeColor(){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
@@ -221,4 +243,4 @@ function customValidation(input){
   
 }
 
-//#endregion
+//#endregiongit add .
