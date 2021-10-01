@@ -44,11 +44,12 @@ function mainMenu(){
     console.log(finalPerson);
     break;
     case "family":
-    finalPerson = foundYou[0].parents, foundYou[0].currentSpouse;
+    finalPerson = foundYou[0].parents + "(Parents) " + " " + foundYou[0].currentSpouse + "(Spouse)" + 
     console.log(finalPerson);
     break;
     case "descendants":
-    // TODO: get person's descendants
+    finalPerson = people.filter + people.filter === foundYou[0].id;
+    console.log(finalPerson);
     break;
     case "restart":
     app(people); // restart
@@ -56,7 +57,7 @@ function mainMenu(){
     case "quit":
     return; // stop execution
     default:
-    return mainMenu(); // ask again
+    return mainMenu(); // ask again`
   }
   return inputFinalPerson;
 }
@@ -85,8 +86,6 @@ function searchByName(people){
   return foundPerson;
 }
 
-
-// console.log(searchByName(people));
 
 
 
@@ -166,7 +165,11 @@ function searchByWeight(people){
     return personWeight;
 }
 
+// function kidsNames(people)
+  
 
+
+// if(foundYou[0].id === people.filter(parents[0]) || people.filter(parents[1])
 //TODO: add other trait filter functions here.
 
 // function for searching by traits.
@@ -175,9 +178,10 @@ function searchMultipleTraits(people){
   do{
 
     let inputMultipleTraits = promptFor('What trait would you like to search?\neye color\ngender\noccupation\nheight\nweight\nname', autoValid);
+    
 
     switch(inputMultipleTraits){ 
-      case "eye color":
+      case "eye color":0
         multipleTraits = searchByEyeColor(multipleTraits);
         break;
         case "gender":
@@ -202,7 +206,6 @@ function searchMultipleTraits(people){
   return multipleTraits
 }
 let foundYou = searchMultipleTraits(people);
-console.log(foundYou);
 
 
 
