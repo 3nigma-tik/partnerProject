@@ -12,10 +12,10 @@ function app(people){
   let searchResults;
   switch(searchType){
     case 'yes':
-      searchResults = searchByName(people);
+      searchResults = searchByName
       break;
     case 'no':
-      // TODO: search by traits
+      searchResults = searchMultipleTraits
       break;
       default:
     app(people); // restart app
@@ -25,6 +25,7 @@ function app(people){
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
 }
+
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
@@ -56,6 +57,7 @@ function mainMenu(person, people){
   }
 }
 
+
 //#endregion
 
 //Filter functions.
@@ -80,7 +82,7 @@ function searchByName(people){
   return foundPerson;
 }
 
-console.log(searchByName(people));
+// console.log(searchByName(people));
 
 
 
@@ -165,7 +167,7 @@ function searchByWeight(people){
 function searchMultipleTraits(people){
   let multipleTraits = people;
   do{
-    let inputMultipleTraits = promptFor('What trait would you like to search?\neyecolor\ngender\noccupation\nheight\nweight', autoValid);
+    let inputMultipleTraits = promptFor('Which trait would you like to search with?\neyecolor\ngender\noccupation\nheight\nweight', autoValid,);
 
     switch(inputMultipleTraits){ 
       case "eyecolor":
@@ -186,7 +188,7 @@ function searchMultipleTraits(people){
       default:
     } 
   }
-  while(promptFor("Keep searching yes or no", autoValid) == "yes");
+  while(promptFor("Would you like to use a another trait for your search? yes or no", autoValid) == "yes");
   return multipleTraits
 }
 console.log(searchMultipleTraits(people));
@@ -212,6 +214,7 @@ function searchSingleTrait(people){
   }
 }
 // searchSingleTrait(people);
+
 
 
 //#endregion
