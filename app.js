@@ -80,7 +80,6 @@ function searchByName(people){
   return foundPerson;
 }
 
-console.log(searchByName(people));
 
 
 
@@ -165,10 +164,10 @@ function searchByWeight(people){
 function searchMultipleTraits(people){
   let multipleTraits = people;
   do{
-    let inputMultipleTraits = promptFor('What trait would you like to search?\neyecolor\ngender\noccupation\nheight\nweight', autoValid);
+    let inputMultipleTraits = promptFor('What trait would you like to search?\neye color\ngender\noccupation\nheight\nweight\nname', autoValid);
 
     switch(inputMultipleTraits){ 
-      case "eyecolor":
+      case "eye color":
         multipleTraits = searchByEyeColor(multipleTraits);
         break;
         case "gender":
@@ -183,6 +182,9 @@ function searchMultipleTraits(people){
         case "weight":
         multipleTraits = searchByWeight(multipleTraits);
         break;
+        case "name":
+        multipleTraits = searchByName(multipleTraits);
+        break; 
       default:
     } 
   }
@@ -195,7 +197,7 @@ console.log(searchMultipleTraits(people));
 function searchSingleTrait(people){
   let trait = prompt("Which trait would you like to look for?");
   
-  if (trait === "eyecolor"){
+  if (trait === "eye color"){
     console.log(searchByEyeColor(people));
   }
   else if (trait === "gender"){
@@ -222,22 +224,20 @@ function searchSingleTrait(people){
 //#region 
 
 // alerts a list of people
-function displayPeople(){
-  alert(people.map(function(people){
-    return people.firstName + " " + people.lastName;
+function displayPeople(foundPerson){
+  alert(foundPerson.map(function(people){
+    return foundPerson.firstName + " " + foundPerson.lastName;
   }).join("\n"));
 }
 
-function displayPerson(people){
+function displayPerson(foundPerson){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + people.firstName + "\n";
-  personInfo += "Last Name: " + people.lastName + "\n";
+  let personInfo = "First Name: " + foundPerson.firstName + "\n";
+  personInfo += "Last Name: " + foundPerson.lastName + "\n";
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
 }
-
-displayPeople("billy bob")
 //#endregion
 
 
