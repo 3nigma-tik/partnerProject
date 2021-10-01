@@ -12,10 +12,10 @@ function app(people){
   let searchResults;
   switch(searchType){
     case 'yes':
-      searchResults = searchByName(people);
+      searchResults = searchByName
       break;
     case 'no':
-      // TODO: search by traits
+      searchResults = searchMultipleTraits
       break;
       default:
     app(people); // restart app
@@ -25,6 +25,7 @@ function app(people){
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
 }
+
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
@@ -55,6 +56,11 @@ function mainMenu(person, people){
     return mainMenu(person, people); // ask again
   }
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8d0d08ce514895b2687c3111e7559623ffec67d3
 //#endregion
 
 //Filter functions.
@@ -79,6 +85,10 @@ function searchByName(people){
   return foundPerson;
 }
 
+<<<<<<< HEAD
+// console.log(searchByName(people));
+=======
+>>>>>>> 3f57bd8ea885461267f7f121c0422ddc91403671
 
 
 
@@ -163,7 +173,11 @@ function searchByWeight(people){
 function searchMultipleTraits(people){
   let multipleTraits = people;
   do{
+<<<<<<< HEAD
+    let inputMultipleTraits = promptFor('Which trait would you like to search with?\neyecolor\ngender\noccupation\nheight\nweight', autoValid,);
+=======
     let inputMultipleTraits = promptFor('What trait would you like to search?\neye color\ngender\noccupation\nheight\nweight\nname', autoValid);
+>>>>>>> 3f57bd8ea885461267f7f121c0422ddc91403671
 
     switch(inputMultipleTraits){ 
       case "eye color":
@@ -187,7 +201,7 @@ function searchMultipleTraits(people){
       default:
     } 
   }
-  while(promptFor("Keep searching yes or no", autoValid) == "yes");
+  while(promptFor("Would you like to use a another trait for your search? yes or no", autoValid) == "yes");
   return multipleTraits
 }
 let foundYou = searchMultipleTraits(people);
@@ -215,6 +229,7 @@ function searchSingleTrait(people){
   }
 }
 // searchSingleTrait(people);
+
 
 
 //#endregion
