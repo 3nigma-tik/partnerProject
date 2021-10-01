@@ -29,16 +29,16 @@ function app(people){
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
   
-  if(!foundPerson){
+  if(!foundYou){
     alert("Could not find that individual.");
     return app(people); // restart
   }
 
-  let foundPerson = promptFor("Found " + people.firstName + " " + people.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let foundPerson = promptFor("Found " + foundYou.firstName + " " + foundYou.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
 
   switch(foundPerson){
     case "info":
-    // TODO: get person's
+    console.log(foundPerson.id)
     break;
     case "family":
     // TODO: get person's family
@@ -55,7 +55,6 @@ function mainMenu(person, people){
     return mainMenu(person, people); // ask again
   }
 }
-
 //#endregion
 
 //Filter functions.
@@ -191,7 +190,9 @@ function searchMultipleTraits(people){
   while(promptFor("Keep searching yes or no", autoValid) == "yes");
   return multipleTraits
 }
-console.log(searchMultipleTraits(people));
+let foundYou = searchMultipleTraits(people);
+console.log(foundYou);
+
 
 
 function searchSingleTrait(people){
@@ -225,7 +226,7 @@ function searchSingleTrait(people){
 
 // alerts a list of people
 function displayPeople(foundPerson){
-  alert(foundPerson.map(function(people){
+  alert(foundPerson.map(function(foundPerson){
     return foundPerson.firstName + " " + foundPerson.lastName;
   }).join("\n"));
 }
@@ -233,14 +234,14 @@ function displayPeople(foundPerson){
 function displayPerson(foundPerson){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + foundPerson.firstName + "\n";
-  personInfo += "Last Name: " + foundPerson.lastName + "\n";
+  let personInfo = "First Name: " + foundPerson[0].firstName + "\n";
+  personInfo += "Last Name: " + foundPerson[0].lastName + "\n";
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
 }
 //#endregion
 
-
+displayPerson(foundYou)
 
 //Validation functions.
 //Functions to validate user input.
