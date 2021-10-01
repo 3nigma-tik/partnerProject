@@ -56,11 +56,7 @@ function mainMenu(person, people){
     return mainMenu(person, people); // ask again
   }
 }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 8d0d08ce514895b2687c3111e7559623ffec67d3
 //#endregion
 
 //Filter functions.
@@ -81,14 +77,14 @@ function searchByName(people){
       return false;
     }
   })
-  // TODO: find the person single person object using the name they entered.
+  
   return foundPerson;
 }
 
-<<<<<<< HEAD
+
 // console.log(searchByName(people));
-=======
->>>>>>> 3f57bd8ea885461267f7f121c0422ddc91403671
+
+
 
 
 
@@ -173,11 +169,8 @@ function searchByWeight(people){
 function searchMultipleTraits(people){
   let multipleTraits = people;
   do{
-<<<<<<< HEAD
-    let inputMultipleTraits = promptFor('Which trait would you like to search with?\neyecolor\ngender\noccupation\nheight\nweight', autoValid,);
-=======
+
     let inputMultipleTraits = promptFor('What trait would you like to search?\neye color\ngender\noccupation\nheight\nweight\nname', autoValid);
->>>>>>> 3f57bd8ea885461267f7f121c0422ddc91403671
 
     switch(inputMultipleTraits){ 
       case "eye color":
@@ -240,23 +233,25 @@ function searchSingleTrait(people){
 //#region 
 
 // alerts a list of people
-function displayPeople(foundPerson){
-  alert(foundPerson.map(function(foundPerson){
-    return foundPerson.firstName + " " + foundPerson.lastName;
+function displayPeople(){
+  alert(foundYou.map(function(foundYou){
+    return foundYou.firstName + " " + foundYou.lastName;
   }).join("\n"));
 }
 
-function displayPerson(foundPerson){
+displayPeople(foundYou);
+
+
+function displayPerson(){
   // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + foundPerson[0].firstName + "\n";
-  personInfo += "Last Name: " + foundPerson[0].lastName + "\n";
+  let personInfo = "First Name: " + foundYou[0].firstName + "\n";
+  personInfo += "Last Name: " + foundYou[0].lastName + "\n";
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
 }
 //#endregion
 
-displayPerson(foundYou)
+displayPerson(foundYou);
 
 //Validation functions.
 //Functions to validate user input.
