@@ -28,21 +28,24 @@ function app(people){
 
 
 // Menu function to call once you find who you are looking for
-function mainMenu(person, people){
+function mainMenu(){
+  let finalPerson;
   
   if(!foundYou){
     alert("Could not find that individual.");
     return app(people); // restart
   }
 
-  let foundPerson = promptFor("Found " + foundYou.firstName + " " + foundYou.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let inputFinalPerson = promptFor("Found " + foundYou[0].firstName + " " + foundYou[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
 
-  switch(foundPerson){
+  switch(inputFinalPerson){
     case "info":
-    console.log(foundPerson.id)
+    finalPerson = foundYou[0].firstName + " " + foundYou[0].lastName + " " + foundYou[0].gender + " " + foundYou[0].dob;
+    console.log(finalPerson);
     break;
     case "family":
-    // TODO: get person's family
+    finalPerson = foundYou[0].parents, foundYou[0].currentSpouse;
+    console.log(finalPerson);
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -53,8 +56,9 @@ function mainMenu(person, people){
     case "quit":
     return; // stop execution
     default:
-    return mainMenu(person, people); // ask again
+    return mainMenu(); // ask again
   }
+  return inputFinalPerson;
 }
 
 //#endregion
@@ -252,6 +256,7 @@ function displayPerson(){
 //#endregion
 
 displayPerson(foundYou);
+mainMenu(foundYou);
 
 //Validation functions.
 //Functions to validate user input.
