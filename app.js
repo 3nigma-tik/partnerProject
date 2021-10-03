@@ -73,7 +73,6 @@ function mainMenu(person, people) {
   }
 }
 
-
 //#endregion
 
 //Filter functions.
@@ -179,7 +178,11 @@ function searchByWeight(people) {
   return personWeight;
 }
 
+// function kidsNames(people)
+  
 
+
+// if(foundYou[0].id === people.filter(parents[0]) || people.filter(parents[1])
 //TODO: add other trait filter functions here.
 
 // function for searching by traits.
