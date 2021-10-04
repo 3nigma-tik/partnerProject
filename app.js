@@ -219,25 +219,25 @@ function searchMultipleTraits(people) {
 // console.log(searchMultipleTraits(people));
 
 
-function searchSingleTrait(people) {
-  let trait = prompt("Which trait would you like to look for?");
+// function searchSingleTrait(people) {
+//   let trait = prompt("Which trait would you like to look for?");
 
-  if (trait === "eye color") {
-    console.log(searchByEyeColor(people));
-  }
-  else if (trait === "gender") {
-    console.log(searchByGender(people));
-  }
-  else if (trait === "occupation") {
-    console.log(searchByOccupation(people));
-  }
-  else if (trait == "height") {
-    console.log(searchByHeight(people));
-  }
-  else if (trait == "weight") {
-    console.log(searchByWeight(people));
-  }
-}
+//   if (trait === "eye color") {
+//     console.log(searchByEyeColor(people));
+//   }
+//   else if (trait === "gender") {
+//     console.log(searchByGender(people));
+//   }
+//   else if (trait === "occupation") {
+//     console.log(searchByOccupation(people));
+//   }
+//   else if (trait == "height") {
+//     console.log(searchByHeight(people));
+//   }
+//   else if (trait == "weight") {
+//     console.log(searchByWeight(people));
+//   }
+// }
 // searchSingleTrait(people);
 
 function displayDescendants(person, people) {
@@ -245,8 +245,8 @@ function displayDescendants(person, people) {
   let descendantRecords = []
   let descendants = []
 
-  for (const data of people) {
-    for (const parent of data.parents) {
+  for (let data of people) {
+    for (let parent of data.parents) {
       if (ids.includes(parent) && !descendantRecords.includes(data)) {
         descendantRecords.push(data)
       }
@@ -254,8 +254,8 @@ function displayDescendants(person, people) {
   }
 
   let childrenIDS = descendantRecords.map(data => data.id)
-  for (const data of people) {
-    for (const parent of data.parents) {
+  for (let data of people) {
+    for (let parent of data.parents) {
       if (childrenIDS.includes(parent) && !descendantRecords.includes(data)) {
         descendantRecords.push(data)
       }
@@ -282,8 +282,8 @@ function displayFamily(person, people) {
   })
 
   // Get parents
-  for (const personData of person) {
-      for (const data of people) {
+  for (let personData of person) {
+      for (let data of people) {
         if (personData.parents.includes(data.id) && !parentRecords.includes(data)) {
           parentRecords.push(data)
         }
